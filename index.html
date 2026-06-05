@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samouczek HTML5</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        body {
+            background-color: #1e1e24;
+            color: #eeeeee;
+            display: flex;
+            min-height: 100vh;
+        }
+        aside {
+            width: 300px;
+            background-color: #2a2a35;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding: 20px;
+            border-right: 2px solid #3a3a4a;
+        }
+        aside ul {
+            list-style: none;
+        }
+        aside ul li {
+            margin-bottom: 10px;
+        }
+        aside ul li a {
+            color: #eeeeee;
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+        }
+        aside ul li a:hover {
+            color: #00adb5;
+        }
+        main{
+            margin-left: 300px;
+            flex: 1;
+            padding: 40px;
+            max-width: 1200px;
+        }
+        section {
+            background-color: #2a2a35;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #00adb5;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #00adb5;
+            padding-bottom: 5px;
+        }
+        h3 {
+            margin: 20px 0 10px 0;
+            color: #fff;
+        }
+        p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #eeeeee;
+        }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        pre {
+            background-color: black;
+            padding: 15px;
+            border-radius: 5px;
+            overflow: auto;
+            margin: 15px 0;
+        }
+        code {
+            font-family: 'Courier New', monospace;
+            color: #e28743;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #444;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: black;
+            color: #00adb5;
+        }
+        .form-example {
+            background: black;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+
+        .form-example input, .form-example select, .form-example textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 15px 0;
+            background: #2a2a35;
+            border: 1px solid #555;
+            color: #fff;
+            border-radius: 4px;
+        }
+        .form-example input[type="submit"] {
+            background-color: #00adb5;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            aside {
+                position: relative;
+                width: 100%;
+                border-right: none;
+                border-bottom: 2px solid #3a3a4a;
+            }
+            main {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <aside>
+        <h1>Menu</h1>
+        <ul>
+            <li><a href="#struktura">1. Struktura dokumentu</a></li>
+            <li><a href="#tekst">2. Formatowanie tekstu</a></li>
+            <li><a href="#listy">3. Listy</a></li>
+            <li><a href="#multimedia">4. Linki i obrazy</a></li>
+            <li><a href="#tabele">5. Tabele</a></li>
+            <li><a href="#formularze">6. Formularze</a></li>
+            <li><a href="#css-podstawy">7. Selektory</a></li>
+            <li><a href="#box-model">8. Model pudełkowy</a></li>
+            <li><a href="#position">9. Pozycjonowanie</a></li>
+            <li><a href="#RWD">10. Responsywność</a></li>
+            <li><a href="#animacje">11. Animacje</a></li>
+            <li><a href="#gradienty">12. Gradienty</a></li>
+        </ul>
+    </aside>
+     <main>
+
+        <section id="struktura">
+            <h2>1. Podstawowa struktura HTML5</h2>
+            <p>Każdy dokument html powinien mieć określoną strukturę.</p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Tytuł strony w karcie przeglądarki&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;Nagłówek strony&lt;/header&gt;
+    &lt;main&gt;Treść główna&lt;/main&gt;
+    &lt;footer&gt;Stopka z podpisem &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </section>
+        <section id="tekst">
+            <h2>2. Formatowanie tekstu</h2>
+            <ul>
+                <li><code>&lt;h1&gt;</code> do <code>&lt;h6&gt;</code> - nagłówki (h1 najważniejszy).</li>
+                <li><code>&lt;p&gt;</code> - akapit (paragraf).</li>
+                <li><code>&lt;br&gt;</code> - przełamanie linii.</li>
+                <li><code>&lt;strong&gt;</code> lub <code>&lt;b&gt;</code> - pogrubienie tekstu.</li>
+                <li><code>&lt;em&gt;</code> lub <code>&lt;i&gt;</code> - pochylenie tekstu (kursywa).</li>
+                <li><code>&lt;span&gt;</code> - element liniowy, używany do ostylowania konkretnego wyrazu.</li>
+                <li><code>&lt;cite&gt;</code> - oznacza tytuły dzieł</li>
+                <li><code>&lt;blockquote&gt;</code> - służy do oznaczania cytatów blokowych</li>
+                <li><code>&lt;sup&gt;</code> i <code>&lt;sub&gt;</code> - indeks górny i indeks dolny</li>
+                <li><code>&lt;code&gt;</code> - oznacza fragmenty codu komputerowego</li>
+            </ul>
+        </section>
+
+        <section id="listy">
+            <h2>3. Listy </h2>
+            <h3>Lista nieuporządkowana</h3>
+            <pre><code>&lt;ul&gt;
+    &lt;li&gt;Element pierwszy&lt;/li&gt;
+    &lt;li&gt;Element drugi&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            <h3>Lista uporządkowana:</h3>
+            <pre><code>&lt;ol&gt;
+    &lt;li&gt;Krok 1&lt;/li&gt;
+    &lt;li&gt;Krok 2&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+        </section>
+
+        <section id="multimedia">
+            <h2>4. Linki i obrazy</h2>
+            <p>Wstawianie grafiki z tekstem alternatywnym oraz odnośników.</p>
+            <pre><code>&lt;a href="https://www.tl.krakow.pl" target="_blank"&gt;Link w nowej karcie&lt;/a&gt;
+
+&lt;img src="obrazek.png" alt="obrazek" height="150"&gt;</code></pre>
+            <blockquote><strong>Ważne:</strong> Brak atrybutu <code>alt</code> w obrazku to częsty błąd, za który traci się punkty na egzaminie!</blockquote>
+        </section>
+
+        <section id="tabele">
+            <h2>5. Tabele</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Znacznik / Atrybut</th>
+                        <th>Zastosowanie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;table&gt;</code></td>
+                        <td>Kontener główny tabeli</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;tr&gt;</code></td>
+                        <td>Wiersz tabeli (Table Row)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;th&gt;</code></td>
+                        <td>Komórka nagłówkowa</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;td&gt;</code></td>
+                        <td>Zwykła komórka danych</td>
+                    </tr>
+                    <tr>
+                        <td><code>colspan="2"</code></td>
+                        <td>Scalanie kolumn w poziomie</td>
+                    </tr>
+                    <tr>
+                        <td><code>rowspan="2"</code></td>
+                        <td>Scalanie kolumn w pionie</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="formularze">
+            <h2>6. Formularze </h2>
+            
+            <div class="form-example">
+                <form action="#" method="post">
+                    <label for="name">Pole tekstowe (input type="text"):</label>
+                    <input type="text" id="name" placeholder="Wpisz imię">
+
+                    <label id="label-pass" for="pass">Pole hasła (type="password"):</label>
+                    <input type="password" id="pass">
+
+                    <label for="num">Pole numeryczne (type="number"):</label>
+                    <input type="number" id="num" min="1" max="100">
+
+                    <label>Przycisk wyboru (type="radio"):</label><br>
+                    <input type="radio" name="plec" value="m" style="width:auto;"> Mężczyzna
+                    <input type="radio" name="plec" value="k" style="width:auto;"> Kobieta <br><br>
+
+                    <label for="wybór">Lista rozwijana (select):</label>
+                    <select id="wybór">
+                        <option value="1">Opcja A</option>
+                        <option value="2">Opcja B</option>
+                    </select>
+
+                    <input type="submit" value="Wyślij formularz">
+                </form>
+            </div>
+        </section>
+              <section id="css-podstawy">
+            <h2>7. CSS: Selektory i sposoby dołączania</h2>
+            <p>Style można dołączać na 3 sposoby: zewnętrzny (za pomocą znacznika <code>&lt;link&gt;</code>), wewnętrzny (w sekcji head <code>&lt;style&gt;</code>) oraz inline (atrybut style="").</p>
+            <h3>Kluczowe selektory:</h3>
+            <pre><code>/* Selektor znacznika */
+p { color: white; }
+
+/* Selektor klasy (kropka) - używany wielokrotnie */
+.czerwony-tekst { color: red; }
+
+/* Selektor identyfikatora (hash) - unikalny, raz na stronę */
+#blok-glowny { background-color: gray; }
+
+/* Pseudoklasa stanu (np. po najechaniu myszą) */
+a:hover { text-decoration: underline; }</code></pre>
+        </section>
+        <section id="box-model">
+            <h2>8. CSS: Model pudełkowy</h2>
+            <p>Każdy element na stronie jest pudełkiem. Marginesy decydują o ułożeniu elementów względem siebie.</p>
+            <ul>
+                <li><code>width</code> / <code>height</code> - szerokość i wysokość elementu.</li>
+                <li><code>padding</code> - margines wewnętrzny (odstęp treści od obramowania).</li>
+                <li><code>border</code> - obramowanie (np. <code>border: 1px solid black;</code>).</li>
+                <li><code>margin</code> - margines zewnętrzny (odstęp między elementami). <code>margin: 0 auto;</code> centruje blok w poziomie.</li>
+            </ul>
+        </section>
+        <section id="position">
+            <h2>9. CSS: Pozycjonowanie</h2>
+            <p>Właściwość <code>position</code> określa sposób, w jaki element jest umiejscawiany w dokumencie HTML. Możliwe wartości to:</p>
+            <ul>
+                <li><code>static</code> - Wartość domyślna. Element wyświetla się w normalnym przepływie dokumentu. Atrybuty top, bottom, left i right na niego nie wpływają.</li>
+                <li><code>relative</code> - Pozycjonowanie względne. Element jest przesuwany względem swojej domyślnej (statycznej) pozycji, ale zachowuje swoje pierwotne miejsce w przepływie strony.</li>
+                <li><code>absolute</code> - Pozycjonowanie bezwzględne. Element jest wyjmowany z normalnego przepływu i pozycjonowany względem najbliższego rodzica, który posiada własność `position` inną niż `static`.</li>
+                <li><code>fixed</code> - Pozycjonowanie stałe. Element jest wyjmowany z przepływu i "przyklejany" w ustalonym miejscu na ekranie względem okna przeglądarki (nie zmienia pozycji podczas scrollowania).</li>
+            </ul>
+        </section>
+        <section id="RWD">
+            <h2>10. Responsywność</h2>
+            <p>Projektowanie RWD (Responsive Web Design) sprawia, że witryna dostosowuje się do ekranów telefonów komórkowych.</p>
+            <pre><code>/* Standardowe style dla komputera */
+body { background-color: #1e1e24; }
+
+/* Style aktywowane TYLKO, gdy szerokość ekranu jest mniejsza lub równa 768px */
+@media (max-width: 768px) {
+    body {
+        background-color: #000000;
+    }
+    main {
+        padding: 10px;
+    }
+}</code></pre>
+        </section>
+        <section id="animacje">
+            <h2>11. CSS: Animacje</h2>
+            <p>Dzięki CSS możemy płynnie zmieniać stan elementów za pomocą <code>@keyframes</code>.</p>
+            <p>Do animacji wykorzystujemy klatki kluczowe, w których precyzyjnie definiujemy wygląd na każdym etapie.</p>
+            <pre><code>/* Definicja klatek kluczowych animacji */
+@keyframes pulsowanie {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); background-color: #00adb5; }
+    100% { transform: scale(1); }
+}
+
+.element-animowany {
+    /* Uruchomienie animacji: nazwa, czas trwania, powtarzanie w nieskończoność */
+    animation: pulsowanie 2s infinite;
+}</code></pre>
+        </section>
+        <section id="gradienty">
+            <h2>12. CSS: Gradienty</h2>
+            <p>Gradienty w CSS pozwalają na płynne przejścia między dwoma lub wieloma kolorami. Traktowane są przez przeglądarkę jako obrazy tła, dlatego używamy dla nich właściwości <code>background</code>.</p>
+            
+            <h3>Gradient liniowy (Linear Gradient)</h3>
+            <p>Zmienia kolory wzdłuż wyznaczonej prostej linii. Możemy określić konkretny kierunek, np. w dół, w prawo lub pod kątem.</p>
+            <pre><code>.liniowy {
+    /* Domyślne przejście od góry do dołu */
+    background: linear-gradient(red, blue);
+    
+    /* Przejście w prawą stronę z wykorzystaniem wielu kolorów */
+    background: linear-gradient(to right, red, orange, yellow, green);
+    
+    /* Przejście pod kątem 45 stopni */
+    background: linear-gradient(45deg, #00adb5, #1e1e24);
+}</code></pre>
+
+            <h3>Gradient promienisty (Radial Gradient)</h3>
+            <p>Zmienia kolory promieniście od wyznaczonego środka na zewnątrz.</p>
+            <pre><code>.promienisty {
+    /* Domyślny gradient ze środka na zewnątrz */
+    background: radial-gradient(white, black);
+    
+    /* Gradient w kształcie idealnego koła z ustawieniem proporcji kolorów */
+    background: radial-gradient(circle, #00adb5 0%, #1e1e24 70%);
+}</code></pre>
+        </section>
+</body>
+</html>
